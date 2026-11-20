@@ -22,8 +22,8 @@
             <fieldset>
                 <legend><?= __('Editar artículo') ?></legend>
                 <?php
-                    echo $this->Form->control('titulo');
-                    echo $this->Form->control('info');
+                    echo $this->Form->control('title', ['label' => 'Título']);
+                    echo $this->Form->control('body', ['label' => 'Info']);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Aceptar')) ?>

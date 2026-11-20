@@ -16,6 +16,7 @@ declare(strict_types=1);
  */
 namespace App;
 
+use Cake\Routing\Router;
 use Cake\Core\Configure;
 use Cake\Core\ContainerInterface;
 use Cake\Datasource\FactoryLocator;
@@ -120,7 +121,7 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
     public function getAuthenticationService(ServerRequestInterface $request): AuthenticationServiceInterface
 {
     $authenticationService = new AuthenticationService([
-        'unauthenticatedRedirect' => '/blog/users/login',
+        'unauthenticatedRedirect' => Router::url('/users/login'),
         'queryParam' => 'redirect',
     ]);
 
@@ -140,7 +141,7 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
             'username' => 'email',
             'password' => 'password',
         ],
-        'loginUrl' => '/blog/users/login',
+        'loginUrl' => Router::url('/users/login'),
     ]);
 
     return $authenticationService;
